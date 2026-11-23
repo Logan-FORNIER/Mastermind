@@ -5,5 +5,6 @@ class InputManager
 {
 public:
 	char GetKey();
+	int GetNumber();
 };
 

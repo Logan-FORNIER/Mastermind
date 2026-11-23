@@ -11,10 +11,8 @@
 */
 
 void GameManager::SecretCombinationGenerator() {
-	int Combination[4] = { 0 };
-
 	for (int i = 0; i < 4; i++) {
-		Combination[i] = rand() % 4;
+		secretCombination[i] = rand() % 4;
 	}
 }
 
@@ -71,7 +69,7 @@ void GameManager::Loop() {
 	while (isRunning) {
 		system("cls");
 
-		if (rm.IncreaseRond()) {
+		if (im.GetNumber() == secretCombination) {
 			isRunning = false;
 		}
 	}
