@@ -44,5 +44,13 @@
     <ClInclude Include="RoundManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Mastermind.rc">
+      <Filter>Fichiers de ressources</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

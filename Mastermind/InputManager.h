@@ -5,6 +5,6 @@ class InputManager
 {
 public:
 	char GetKey();
-	int GetNumber();
+	void GetCombination(char guess[4]);
 };
 

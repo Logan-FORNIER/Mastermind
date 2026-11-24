@@ -149,7 +149,11 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="RoundManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Mastermind.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

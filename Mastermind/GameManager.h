@@ -10,7 +10,7 @@ private:
 	RoundManager rm;
 
 	bool isRunning;
-	int secretCombination[4];
+	char secretCombination[4];
 
 public:
 	void SecretCombinationGenerator();

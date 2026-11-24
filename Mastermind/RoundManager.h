@@ -11,5 +11,6 @@ public:
 	int GetRound() const { return round; }
 	int GetMaxRound() const { return roundMax; }
 	int IncreaseRond();
+	int SetRound();
 };
 

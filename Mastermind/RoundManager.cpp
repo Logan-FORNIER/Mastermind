@@ -11,3 +11,9 @@ int RoundManager::IncreaseRond() {
 
 	return 0;
 }
+
+int RoundManager::SetRound() {
+	round = 0;
+
+	return round;
+}

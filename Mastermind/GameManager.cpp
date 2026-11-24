@@ -3,16 +3,20 @@
 
 /*
 
- 0 = Noir;
- 1 = Rouge;
- 2 = Orange;
- 3 = Vert;
+ n = Noir;
+ b = Bleu;
+ r = Rouge;
+ o = Orange;
+ v = Vert;
+ j = Jaune;
 
 */
 
 void GameManager::SecretCombinationGenerator() {
+	char colors[6] = { 'N', 'R', 'O', 'V', 'B', 'J'};
+
 	for (int i = 0; i < 4; i++) {
-		secretCombination[i] = rand() % 4;
+		secretCombination[i] = colors[rand() % 4];
 	}
 }
 
@@ -58,6 +62,7 @@ void GameManager::Menu() {
 void GameManager::Initialize() {
 	srand(time(NULL));
 
+	rm.SetRound();
 	SecretCombinationGenerator();
 
 	Loop();
@@ -65,12 +70,45 @@ void GameManager::Initialize() {
 
 void GameManager::Loop() {
 	isRunning = true;
+	char guess[4] = { 0 };
 
 	while (isRunning) {
 		system("cls");
 
-		if (im.GetNumber() == secretCombination) {
+		int count = 0;
+		im.GetCombination(guess);
+
+		for (int i = 0; i < 4; ++i) {
+			if (guess[i] != secretCombination[i]) {
+				break;
+			}
+		}
+
+		for (int i = 0; i < 4; i++) {
+			if (guess[i] == secretCombination[i]) {
+				count++;
+			}
+		}
+
+		if (count == 4) {
+			std::cout << "Bien jouer ! le code couleurs secret etait : ";
+			for (int i = 0; i < 4; ++i) {
+				std::cout << secretCombination[i];
+			}
+			std::cout << "\n";
 			isRunning = false;
+		}
+		else {
+			std::cout << "Ce n'est pas la bonne combinaison ! " << count << " sont bien mis, il te reste " << (rm.GetMaxRound() - rm.GetRound()) - 1 << std::endl;
+			if (rm.IncreaseRond()) {
+				std::cout << "Perdu ! Nombre maximum de manches atteint. Le code etait : ";
+				for (int i = 0; i < 4; ++i) {
+					std::cout << secretCombination[i];
+				}
+				std::cout << "\n";
+				isRunning = false;
+			}
+			system("pause");
 		}
 	}
 }
